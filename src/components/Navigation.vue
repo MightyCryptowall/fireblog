@@ -111,7 +111,7 @@ header {
         margin-right: 32px;
 
         .link {
-            margin-right: 32px;
+            margin-right: 0.5rem;
         }
 
         .link:last-child {
