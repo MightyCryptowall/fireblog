@@ -134,6 +134,18 @@ button,
   color: #fff;
 }
 
+.button-inactive {
+  pointer-events: none !important;
+  cursor: none !important;
+  background-color: rgba(128, 128, 128, 0.5) !important;
+}
+
+.error {
+  text-align: center;
+  font-size: 12px;
+  color: red;
+}
+
 .blog-card-wrap {
   position: relative;
   padding: 80px 16px;
