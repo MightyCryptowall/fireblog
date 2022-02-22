@@ -1,7 +1,7 @@
 <template>
  <div class="reset-password">
    <Modal v-if="modalActive" v-on:close-modal="closeModal" />
-   <Loading/>
+   <Loading v-if="loading" />
    <div class="form-wrap">
      <form class="reset">
        <h2>Reset Password</h2>
@@ -30,7 +30,8 @@ export default {
     return {
       email: null,
       modalActive: false,
-      modalMessage: ""
+      modalMessage: "",
+      loading: null,
     }
   },
   components: {
