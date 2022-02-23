@@ -11,6 +11,10 @@
 <script>
 import Navigation from "./components/Navigation.vue";
 import Footer from "./components/Footer.vue";
+import firebase from "firebase/app";
+import "firebase/auth";
+
+
 export default {
   name: "app",
   components: {
@@ -24,6 +28,8 @@ export default {
   },
   created() {
     this.checkRoute();
+   
+      console.log(firebase.auth().currentUser);
   },
   mounted() {},
   methods: {
