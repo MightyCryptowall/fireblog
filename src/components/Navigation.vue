@@ -11,11 +11,11 @@
           <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
           <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
           <router-link class="link" to="#">Create Post</router-link>
-          <router-link class="link" :to="{ name: 'Login' }"
+          <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
             >Login/Register</router-link
           >
         </ul>
-        <div @click="toggleProfileMenu" class="profile" ref="profile">
+        <div v-if="user" @click="toggleProfileMenu" class="profile" ref="profile">
           <span>{{ this.$store.state.profileInitials }}</span>
           <div v-show="profileMenu" class="profile-menu">
             <div class="info">
@@ -31,13 +31,13 @@
             </div>
             <div class="options">
               <div class="option">
-                <router-link class="option" to="#">
+                <router-link class="option" :to="{ name: 'Profile' }">
                   <UserIcon class="icon" />
                   <p>Profile</p>
                 </router-link>
               </div>
               <div v-if="admin" class="option">
-                <router-link class="option" to="#">
+                <router-link class="option" :to="{ name: 'Admin' }">
                   <AdminIcon class="icon" />
                   <p>Admin</p>
                 </router-link>
@@ -87,7 +87,7 @@ export default {
   },
   data() {
     return {
-      admin: null,
+      admin: true,
       profileMenu: null,
       mobile: null,
       mobileNav: null,
@@ -122,6 +122,11 @@ export default {
     }
 
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    }
+  }
 };
 </script>
 
